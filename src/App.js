@@ -20,16 +20,14 @@ function App() {
       try {
         const data = await imagesApi(imageName, page);
         setItems(images => [...images, ...data]);
-        if (page !== 1) {
-          window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: 'smooth',
-          });
-        }
       } catch (e) {
         throw e;
       } finally {
         setLoading(false);
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
       }
     };
     fetchImages();
