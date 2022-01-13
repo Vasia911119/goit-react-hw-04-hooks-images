@@ -8,10 +8,12 @@ axios.defaults.params = {
   per_page: '12',
 };
 
-async function imagesApi(nextName, page) {
+async function imagesApi(imageName, page) {
   try {
-    const { data } = await axios.get(`?q=${nextName}&page=${page}`);
-    return data;
+    const {
+      data: { hits },
+    } = await axios.get(`?q=${imageName}&page=${page}`);
+    return hits;
   } catch (e) {
     throw e;
   }

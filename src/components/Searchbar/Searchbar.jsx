@@ -1,47 +1,43 @@
 import { toast } from "react-toastify";
 import { ImSearch } from "react-icons/im";
-import React, { Component } from "react";
+import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { Searchar, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from './Searchbar.styled';
 
-class Searchbar extends Component {
-  state = {
-    imageName: "",
+function Searchbar ({onSubmit}) {
+  const [imageName, setImageName] = useState('');
+
+  const handleNameChange = (event) => {
+    setImageName(event.currentTarget.value.toLowerCase());
   };
 
-  handleNameChange = (event) => {
-    this.setState({ imageName: event.currentTarget.value.toLowerCase() });
-  };
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.imageName.trim() === "") {
+    if (imageName.trim() === "") {
       toast.warn("Enter a search query");
       return;
     }
 
-    this.props.onSubmit(this.state.imageName);
-    this.setState({ imageName: "" });
+    onSubmit(imageName);
+    setImageName('');
   };
 
-  render() {
-    return (
-      <Searchar>
-        <SearchForm onSubmit={this.handleSubmit}>
-          <SearchFormButton type="submit">
-            <ImSearch style={{ marginRight: 8 }} />
-            <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-          </SearchFormButton>
-          <SearchFormInput
-            type="text"
-            placeholder="Search images and photos"
-            value={this.state.imageName}
-            onChange={this.handleNameChange}
-          />
-        </SearchForm>
-      </Searchar>
-    );
-  }
+  return (
+    <Searchar>
+      <SearchForm onSubmit={handleSubmit}>
+        <SearchFormButton type="submit">
+          <ImSearch style={{ marginRight: 8 }} />
+          <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+        </SearchFormButton>
+        <SearchFormInput
+          type="text"
+          placeholder="Search images and photos"
+          value={imageName}
+          onChange={handleNameChange}
+        />
+      </SearchForm>
+    </Searchar>
+  );
 }
 
 export default Searchbar;
