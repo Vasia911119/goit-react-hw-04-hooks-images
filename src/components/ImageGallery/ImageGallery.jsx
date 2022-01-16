@@ -18,10 +18,6 @@ function ImageGallery({ items }) {
 }
 
 ImageGallery.propTypes = {
-  id: propTypes.number,
-  webformatURL: propTypes.string,
-  largeImageURL: propTypes.string,
-  tags: propTypes.string,
   items: propTypes.array,
 };
 

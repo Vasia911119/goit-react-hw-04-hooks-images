@@ -3,6 +3,7 @@ import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { Searchar, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from './Searchbar.styled';
+import propTypes from "prop-types";
 
 function Searchbar ({onSubmit}) {
   const [imageName, setImageName] = useState('');
@@ -39,5 +40,9 @@ function Searchbar ({onSubmit}) {
     </Searchar>
   );
 }
+
+Searchbar.propTypes = {
+  onSubmit: propTypes.func,
+};
 
 export default Searchbar;

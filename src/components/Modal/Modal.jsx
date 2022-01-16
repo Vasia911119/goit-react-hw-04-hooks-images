@@ -37,9 +37,9 @@ function Modal ({toggleModal, largeImageURL, tags}) {
 }
 
 Modal.propTypes = {
-  onClick: propTypes.func,
-  src: propTypes.string,
-  alt: propTypes.string,
+  toggleModal: propTypes.func,
+  largeImageURL: propTypes.string,
+  tags: propTypes.string,
 };
 
 export default Modal;

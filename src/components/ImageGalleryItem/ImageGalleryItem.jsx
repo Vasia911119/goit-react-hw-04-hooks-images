@@ -29,12 +29,9 @@ import propTypes from "prop-types";
 }
 
 ImageGalleryItem.propTypes = {
-  showModal: propTypes.bool,
-  onClick: propTypes.func,
-  src: propTypes.string,
-  alt: propTypes.string,
+  webformatURL: propTypes.string,
+  tags: propTypes.string,
   largeImageURL: propTypes.string,
-  toggleModal: propTypes.func,
 };
 
 export default ImageGalleryItem;

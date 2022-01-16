@@ -10,7 +10,7 @@ function Button({ onBtnClick }) {
 }
 
 ButtonLoad.propTypes = {
-  onClick: propTypes.func,
+  onBtnClick: propTypes.func,
 };
 
 export default Button;

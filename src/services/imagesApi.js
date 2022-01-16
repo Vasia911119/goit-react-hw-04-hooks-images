@@ -1,4 +1,5 @@
 import axios from 'axios';
+import propTypes from 'prop-types';
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
 axios.defaults.params = {
@@ -18,5 +19,10 @@ async function imagesApi(imageName, page) {
     throw e;
   }
 }
+
+imagesApi.propTypes = {
+  imageName: propTypes.string,
+  page: propTypes.number,
+};
 
 export default imagesApi;
